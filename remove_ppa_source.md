@@ -19,7 +19,7 @@ sudo add-apt-repository ppa:eugenesan/java
 sudo apt-get update
 ```
 删除命令格式则为：
-``
+```
 sudo add-apt-repository -r ppa:user/ppa-name
 ```
 如
