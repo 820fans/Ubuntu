@@ -1,0 +1,150 @@
+http://blog.csdn.net/lj402159806/article/details/54695651
+
+//change grub bg   更换引导图片
+http://blog.csdn.net/m718281962/article/details/9302937
+
+//chromium浏览器  chrome精简版，登录chrome账户之后会将chrome里面的配置都同步过来
+http://chromium.woolyss.com/
+sudo add-apt-repository ppa:canonical-chromium-builds/stage
+sudo apt-get update
+sudo apt-get install chromium-browser
+
+
+//安装Java     还不错，用idea之前装的，没有啥坑
+http://blog.csdn.net/lj402159806/article/details/54695651
+添加ppa 
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update 
+安装oracle-java-installer
+JDK7
+sudo apt-get install oracle-java7-installer
+JDK8
+sudo apt-get install oracle-java8-installer
+
+安装器会提示你同意 oracle 的服务条款,选择 ok
+然后选择yes 即可。设置系统默认jdk(也可用于同时安装两个版本,实现两者的切换)
+
+JDK7
+sudo update-java-alternatives -s java-7-oracle
+JDK8
+sudo update-java-alternatives -s java-8-oracle
+测试jdk是否安装成功:
+
+java -version
+javac -version
+
+======================================================
+安装systemback  => 无敌的备份工具，非常好用
+链接 : http://www.linuxidc.com/Linux/2015-09/122560.htm
+sudo add-apt-repository ppa:nemh/systemback
+sudo apt-get update
+sudo apt-get install systemback
+卸载命令：
+sudo apt-get remove systemback
+
+====================================================
+倒腾QQ  => 放弃ubuntu下使用qq
+http://www.mintos.org/review/linux-qq.html
+
+====================================================
+格式化Udisk   => 操作很简单，推荐，生成live之后直接插入U盘写数据，新的盘就做好了
+sudo fdisk -l
+sudo fdisk /dev/sdc
+http://www.linuxidc.com/Linux/2013-05/85115.htm
+刻盘 
+dd命令做usb启动盘十分方便,只须:
+sudo dd if=xxx.iso of=/dev/sdb      但是我拿这个刻live盘之后不能正常用
+==================================================================
+
+anaconda安装完应该做的
+conda install libgcc # 用于读取libsvm.so.2
+conda install gensim # 用于使用word2vec
+conda install theano
+conda install keara
+
+libsvm各种准备，在下载完成之后，cd根目录
+根目录 make
+根目录/python make
+pycharm 里面需要把libsvm.so.2放到lib/python
+sudo apt-get install gnuplot-x11 #用于gnuplot画图
+安装完成之后需要使用which gnuplot 查看位置，更新grid.py
+
+============================================================
+
+安装 shadowsocks GUI 客户端    => 翻墙神器 配合http://crola.xyz/ 购买一个套餐
+sudo add-apt-repository ppa:hzwhuang/ss-qt5
+sudo apt-get update
+sudo apt-get install shadowsocks-qt5
+
+
+安装wps
+去官网下载最新的alpha版本deb
+由于需要32位的支持，输入
+sudo apt-get install ia32-libs -------------------- 报错
+
+于是：
+sudo apt-get install lib32ncurses5
+sudo apt-get install lib32z1
+然后发现还是缺少依赖libpng12-0，于是从以下链接下载：
+https://packages.debian.org/zh-cn/wheezy/amd64/libpng12-0/download
+#sudo dpkg -i libpng12-0_1.2.49-1+deb7u2_amd64.deb
+之后就可以正常安装了，缺少字体的问题，按照这个blog解决：
+http://blog.csdn.net/star_xiong/article/details/47148413
+
+之后，wps完美安装
+
+=================================================================================
+解决字体问题：
+1、下载该字体后，解压到 /usr/share/fonts/  目录下，解压出来的目录为wps_symbol_fonts
+ 注意，wps_symbol_fonts目录要有可读可执行权限，没有的话需要手动修改
+权限设置,执行命令如下
+    cd /usr/share/fonts/
+    chmod 755 wps_symbol_fonts
+    cd /usr/share/fonts/wps_symbol_fonts 
+    chmod 644 *
+2.生成缓存配置信息
+    进入字体目录  
+    cd /usr/share/fonts/wps_symbol_fonts
+    生成
+    mkfontdir
+    mkfontscale
+    fc-cache
+
+======================================================================================
+Notepad++  ==>> 不好用 pass
+sudo add-apt-repository ppa:notepadqq-team/notepadqq
+sudo apt-get update
+sudo apt-get install notepadqq
+
+======================================================================================
+PDF 阅读器   ==> 超级好用
+sudo apt-get install okular
+
+Ubuntu下FTP服务器  ==> 和小米“远程管理”无缝衔接
+filezilla 图形化界面
+
+安装截图工具 Shutter  ==>  完全替代QQ截图
+sudo apt-get install shutter
+设置快捷键
+shutter -s
+shutter -a # 截屏活动窗口
+
+=========================================================================
+管理ubuntu剪切板
+sudo apt-get install parcellite
+通过管理首选项的trim newlines ， 就可以在复制pdf文件的时候，自动去除回车。
+
+==========================================================================
+标题栏实时显示网速
+http://blog.csdn.net/tecn14/article/details/24489031
+
+sudo add-apt-repository ppa:fossfreedom/indicator-sysmonitor  
+sudo apt-get update  
+sudo apt-get install indicator-sysmonitor 
+
+============================================================================
+Keras可视化显示model
+在其文档里面，具有plot_model这个函数，直接执行的话会报错
+需要安装依赖：
+pip install pydot-ng # 注意，报错的是pydot，但是需要安装pydot-ng
+sudo apt-get install graphviz # 注意，这个不是安装在python环境里面的，类似与gnuplot，这个需要安装在系统里面的哟～
