@@ -152,3 +152,10 @@ sudo fdisk /dev/sdc
 # dd命令做usb启动盘十分方便,只须:
 sudo dd if=xxx.iso of=/dev/sdb      # 但是我拿这个刻live盘之后不能正常用
 ```
+
+### 安装Photoshop替代产品GIMP
+```
+sudo add-apt-repository ppa:otto-kesselgulasch/gimp
+sudo apt-get update
+sudo apt-get install gimp
+```
