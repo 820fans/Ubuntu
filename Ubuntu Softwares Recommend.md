@@ -159,3 +159,10 @@ sudo add-apt-repository ppa:otto-kesselgulasch/gimp
 sudo apt-get update
 sudo apt-get install gimp
 ```
+
+### 15. 安装LeTex编辑器
+```
+sudo add-apt-repository ppa:texworks/stable
+sudo apt-get update
+sudo apt-get install texworks
+```
