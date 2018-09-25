@@ -68,6 +68,7 @@ sudo apt-get install shadowsocks-qt5
 ```
 ### 7. 安装wps
 去官网http://linux.wps.cn/ 下载最新的alpha版本deb
+现在最新版的发布地址已经位于:http://wps-community.org/download.html
 #### 7.1 安装版本
 ##### 7.1.1 解决依赖
 由于需要32位的支持，输入
